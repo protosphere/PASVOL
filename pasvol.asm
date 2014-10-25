@@ -38,7 +38,7 @@ pas_set_volume_ptr: dd 0x00
 ; Resident Code                                                               ;
 ;-----------------------------------------------------------------------------;
 int_08:
-	push ax                  			    ; Save registers
+	push ax                                 ; Save registers
 	push bx
 	push es
 
@@ -66,7 +66,7 @@ int_08_end:
 	iret
 
 int_09:
-	push ax                  			    ; Save registers
+	push ax                                 ; Save registers
 	push es
 
 	mov ax, 0x40
@@ -203,7 +203,7 @@ pas_driver_not_installed:
 	int 0x21
 
 pas_get_functions:
-	mov ax, 0xbc03					        ; Get PAS driver's function table
+	mov ax, 0xbc03                          ; Get PAS driver's function table
 	int 0x2f
 
 	mov es, dx                              
@@ -246,7 +246,7 @@ install:
 	mov word [cs:orig_int2f+2], es          ; and segment
 
 	push ds
-	push cs								    ; cs = ds
+	push cs                                 ; cs = ds
 	pop ds
 
 	mov ah, 0x25                            ; Set interrupt handler
